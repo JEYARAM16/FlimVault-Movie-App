@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - FlimVault</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="display:flex; justify-content:center; align-items:center; height:100vh; flex-direction:column;">
+    <h1>Login</h1>
+    <form id="login-form" style="display:flex; flex-direction:column; gap:10px; width:300px;">
+        <input type="text" id="user" placeholder="Username" required>
+        <input type="password" id="pass" placeholder="Password" required>
+        <button type="submit">Log In</button>
+    </form>
+    <a href="signup.html" style="color:white; margin-top:10px;">Create Account</a>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const username = document.getElementById('user').value;
+            const password = document.getElementById('pass').value;
+            
+            const res = await fetch('http://localhost:5000/api/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, password })
+            });
+            const data = await res.json();
+            
+            if(res.ok) {
+                localStorage.setItem('token', data.token); 
+                localStorage.setItem('username', data.username); // <--- THIS SAVES THE NAME!
+                window.location.href = 'index.html'; 
+            } else {
+                alert(data.error);
+            }
+        });
+    </script>
+</body>
+</html>

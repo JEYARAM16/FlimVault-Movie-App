@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlimVault</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="sidebar">
+    <div class="logo">FlimVault</div>
+    
+    <div class="menu-title">Discover</div>
+    
+    <a href="#" class="menu-item active" onclick="fetchTrending(); updateSidebar(this)">🔥 Trending</a>
+    <a href="#" class="menu-item" onclick="fetchMoviesByCategory(28, 'Action Movies', this)">⚔ Action</a>
+    <a href="#" class="menu-item" onclick="fetchMoviesByCategory(35, 'Comedy Hits', this)">😂 Comedy</a>
+    <a href="#" class="menu-item" onclick="fetchMoviesByCategory(27, 'Horror Night', this)">👻 Horror</a>
+    <a href="#" class="menu-item" onclick="fetchMoviesByCategory(878, 'Sci-Fi World', this)">👽 Sci-Fi</a>
+
+    <div class="menu-title">Library</div>
+    <a href="#" class="menu-item" id="watchlist-sidebar-btn">❤️ My Watchlist</a>
+    <a href="login.html" class="menu-item logout-btn">🚪 Logout</a>
+</nav>
+
+    <div class="main-content">
+        
+        <header>
+            <form id="search-form">
+                <input type="text" id="search-input" placeholder="Search for movies, series..." required>
+                <button type="submit">Search</button>
+            </form>
+            <div class="user-profile">👤 User</div>
+        </header>
+
+        <main id="movie-container">
+            </main>
+    </div>
+
+    <div id="trailer-modal">
+        <div class="modal-content">
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    
+    <script>
+        // Connect the "My Watchlist" sidebar button to the existing logic
+        document.getElementById('watchlist-sidebar-btn').addEventListener('click', () => {
+             document.getElementById('watchlist-btn').click(); // Triggers the hidden logic
+        });
+    </script>
+</body>
+</html>
