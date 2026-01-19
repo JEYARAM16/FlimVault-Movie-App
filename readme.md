@@ -51,4 +51,4 @@ This project was built to demonstrate proficiency in the **MERN Stack** (MongoDB
 (Screenshots are included in the documentation document)
 
 ---
-*Created for [Company Name] Internship 2026.*
+*Created for [InLighnX Global Pvt. Ltd.] Internship 2026.*
